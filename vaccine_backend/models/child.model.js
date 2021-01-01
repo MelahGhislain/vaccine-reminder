@@ -22,7 +22,8 @@ const childSchema = new mongoose.Schema({
         required: true,
     },
     age:{
-        type: String,
+        type: Number,
+        required: true
     },
     gender:{
         type: String,
@@ -31,7 +32,9 @@ const childSchema = new mongoose.Schema({
     parent:{
         type: String,
         required: true,
-    }
+    },
+    vaccines:[String]
+    
 }, {timestamps: true})
 
 

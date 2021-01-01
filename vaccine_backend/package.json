@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon text.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,8 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.3",
     "mongoose": "^6.3.3",
+    "node-cron": "^3.0.0",
+    "nodemailer": "^6.7.5",
     "react-responsive": "^9.0.0-beta.8"
   }
 }
