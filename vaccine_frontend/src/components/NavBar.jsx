@@ -30,7 +30,9 @@ const NavBar = () => {
                         </li>
                     </Link>
                 ))}
-                <li className='text-gray-100 bg-green-600 border-2 border-green-600 m-1 rounded py-1 px-4 cursor-pointer text-sm font-medium shadow-md transition-all duration-300 hover:scale-95 hover:shadow-sm'>GET STARTED</li>
+                <Link to="/signup">
+                    <li className='text-gray-100 bg-green-600 border-2 border-green-600 m-1 rounded py-1 px-4 cursor-pointer text-sm font-medium shadow-md transition-all duration-300 hover:scale-95 hover:shadow-sm'>GET STARTED</li>
+                </Link>
             </ul>
             {!openDrawer?
                 <FaBars className='cursor-pointer md:hidden' onClick={()=>setOpenDrawer(true)}/>
@@ -48,9 +50,11 @@ const NavBar = () => {
                         </li>
                     </Link>
                 ))}
-                <div className='px-4'>
-                    <li className='text-gray-100 bg-green-600 border-2 border-green-600 m-1 rounded py-1 px-4 cursor-pointer text-sm font-medium shadow-md transition-all duration-300 hover:scale-95 hover:shadow-sm'>GET STARTED</li>
-                </div>
+                <Link to="/signup">
+                    <div className='px-4'>
+                        <li className='text-gray-100 bg-green-600 border-2 border-green-600 m-1 rounded py-1 px-4 cursor-pointer text-sm font-medium shadow-md transition-all duration-300 hover:scale-95 hover:shadow-sm'>GET STARTED</li>
+                    </div>
+                </Link>
             </ul>
         </nav>}
     </div>
