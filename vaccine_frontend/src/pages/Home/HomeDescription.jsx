@@ -2,6 +2,7 @@ import React from 'react'
 import TextButton from '../../components/TextButton'
 import {images} from '../../constants'
 import {motion} from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 const HomeDescription = () => {
   return (
@@ -17,7 +18,9 @@ const HomeDescription = () => {
                         They can see the relevant vaccines schedule whether government recommended or private medicine.
                         The next step is for the app to notify you for your vaccine. Once vaccinated the app will update.
                     </p>
-                    <TextButton text="get start now"/>
+                    <Link to="/registration">
+                        <TextButton text="get start now"/>
+                    </Link>
                 </div>
             </motion.article>
             <motion.article 
