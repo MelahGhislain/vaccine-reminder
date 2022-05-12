@@ -27,7 +27,11 @@ const ChildDetail = ({detail}) => {
                 </li>
                 <li className="flex items-center py-1 text-neutral-600">
                     <p className="mr-2">- Weight: </p>
-                    <p>{detail.weight} kg</p>
+                    <p>{detail.weight} kg</p>s
+                </li>
+                <li className="flex items-center py-1 text-neutral-600">
+                    <p className="mr-2">- Gender: </p>
+                    <p>{detail.gender.toUpperCase() == "M"? "Male": "Female"}</p>
                 </li>
             </ul>
             <div className="bg-neutral-50 w-[30%] px-4 py-4 flex flex-col">

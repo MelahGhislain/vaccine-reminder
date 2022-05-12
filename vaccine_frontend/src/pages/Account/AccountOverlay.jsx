@@ -10,6 +10,7 @@ const children = [
         blood_group: "A+",
         height: "60",
         weight: "30",
+        gender: "M",
         vaccines: [
             {
                 id: "vaccine-id-1",
@@ -32,6 +33,7 @@ const children = [
         blood_group: "AB+",
         height: "100",
         weight: "60",
+        gender: "F",
         vaccines: [
             {
                 id: "vaccine-id-1",
