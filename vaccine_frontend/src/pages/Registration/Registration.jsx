@@ -2,7 +2,6 @@ import React from 'react'
 import CustomHero from '../../components/CustomHero'
 import NavBar from '../../components/NavBar'
 import {images} from "../../constants"
-// import {Link} from 'react-router-dom'
 import Footer from '../../components/Footer'
 import RegistrationForm from './RegistrationForm'
 

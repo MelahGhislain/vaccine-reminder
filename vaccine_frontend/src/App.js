@@ -11,6 +11,7 @@ import Contact from './pages/Contact/Contact';
 import About from './pages/About/About';
 import Vaccine from './pages/Vaccine/Vaccine';
 import Vaccines from './pages/Vaccine/Vaccines';
+import Account from './pages/Account/Account';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/vaccine" element={<Vaccine />} />
           <Route path="/vaccines" element={<Vaccines />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
       </Router>
     </div>
