@@ -1,4 +1,5 @@
 import React from 'react'
+import {motion} from 'framer-motion'
 
 const Goals = () => {
   return (
@@ -8,7 +9,10 @@ const Goals = () => {
             <p className="text-sm text-neutral-600 pt-4">Championing a health nation with our children - To live well & with peace of mind.</p>
         </div>
         <div className="flex justify-center items-start w-full space-y-4 md:space-y-0 md:space-x-4 mt-4 flex-col md:flex-row">
-            <div className="flex-1 flex flex-col h-full bg-neutral-200 p-8">
+            <motion.div 
+                whileInView={{opacity: [0,1], x:[-300, 0]}}
+                transition={{duration: 0.5}}
+                className="flex-1 flex flex-col h-full bg-neutral-200 p-8">
                 <h4>OUR MISSION</h4>
                 <ul className="text-sm text-neutral-600 pt-4 italic">
                     <li>Vaccine Reminder is to:</li>
@@ -17,8 +21,11 @@ const Goals = () => {
                     <li>Pursue medical excellence</li>
                 </ul>
                 <div className="flex-auto md:p-10"></div>
-            </div>
-            <div className="flex-1 h-full bg-neutral-200 p-8">
+            </motion.div>
+            <motion.div 
+                whileInView={{opacity: [0,1], x:[300, 0]}}
+                transition={{duration: 0.5}}
+                className="flex-1 h-full bg-neutral-200 p-8">
                 <h4>OUR VALUES</h4>
                 <ul className="text-sm text-neutral-600 pt-4 italic">
                     <li>The following signifies the cores that vaccine reminder embodies throught our staff: </li>
@@ -29,7 +36,7 @@ const Goals = () => {
                     <li>Care & Compassion</li>
                     <li>Teamwork</li>
                 </ul>
-            </div>
+            </motion.div>
         </div>
     </section>
   )

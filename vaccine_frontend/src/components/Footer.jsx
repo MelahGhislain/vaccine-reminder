@@ -2,10 +2,14 @@ import React from 'react'
 import {FaClock, FaFacebook, FaInstagram, FaPhoneAlt, FaEnvelope, FaWhatsapp } from 'react-icons/fa'
 import PrimaryButton from './PrimaryButton'
 import {Link} from 'react-router-dom'
+import {motion} from 'framer-motion'
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-50">
+    <motion.footer 
+        whileInView={{opacity: [0,1], y:[300, 0]}}
+        transition={{duration: 0.5}}
+        className="bg-neutral-50">
         <div className="flex items-start p-12 flex-col lg:flex-row">
             <div className="flex-1 md:pr-10 py-4 lg:py-0">
                 <Link to="/">
@@ -51,7 +55,7 @@ const Footer = () => {
                 <button className="w-full mt-2 md:mt-0 md:w-fit shadow-lg px-4 py-2 bg-green-900 cursor-pointer transition-all duration-300 hover:scale-95">Privacy & Cookies Policy</button>
             </div>
         </div>
-    </footer>
+    </motion.footer>
   )
 }
 
