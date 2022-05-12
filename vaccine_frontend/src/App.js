@@ -9,6 +9,8 @@ import ResetMessage from './pages/Auth/ResetMessage';
 import Registration from './pages/Registration/Registration';
 import Contact from './pages/Contact/Contact';
 import About from './pages/About/About';
+import Vaccine from './pages/Vaccine/Vaccine';
+import Vaccines from './pages/Vaccine/Vaccines';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/registration" element={<Registration />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/vaccine" element={<Vaccine />} />
+          <Route path="/vaccines" element={<Vaccines />} />
         </Routes>
       </Router>
     </div>

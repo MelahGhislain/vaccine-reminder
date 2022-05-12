@@ -24,8 +24,8 @@ const NavBar = () => {
             </Link>
             
             <ul className='flex-none hidden md:flex justify-center items-center '>
-                {navItems.map(nav =>(
-                    <Link to={nav.route}>
+                {navItems.map((nav, index) =>(
+                    <Link to={nav.route} key={index}>
                         <li onClick={()=>setActive(nav.name)} className={`text-sm font-medium py-2 px-4 mx-1 cursor-pointer transition-all duration-300 hover:text-green-600 ${active === nav.name? "text-green-600": "" }`}>
                             {nav.name.toUpperCase()}
                         </li>
@@ -44,9 +44,9 @@ const NavBar = () => {
         {openDrawer && <nav className="flex-none flex items-center px-4 py-2 md:hidden">
             
             <ul className='flex-none flex justify-center items-start  flex-col'>
-                {navItems.map(nav =>(
-                    <Link to={nav.route}>
-                        <li onClick={()=>setActive(nav.name)} className={`text-sm font-medium py-2 px-4 mx-1 cursor-pointer transition-all duration-300 hover:text-green-600 ${active === nav.name? "text-green-600": "" }`}>
+                {navItems.map((nav, index) =>(
+                    <Link to={nav.route} key={index}>
+                        <li to={nav.route} onClick={()=>setActive(nav.name)} className={`text-sm font-medium py-2 px-4 mx-1 cursor-pointer transition-all duration-300 hover:text-green-600 ${active === nav.name? "text-green-600": "" }`}>
                             {nav.name.toUpperCase()}
                         </li>
                     </Link>
