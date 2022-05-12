@@ -59,7 +59,7 @@ const Footer = () => {
         <div className="flex items-center px-12 bg-black/40 text-white text-sm w-full">
             <div className="py-2 flex justify-between items-center w-full flex-col md:flex-row">
                 <p >&copy; The vaccine reminder -All Right Reserved.</p>
-                <button className="w-full mt-2 md:mt-0 md:w-fit shadow-lg px-4 py-2 bg-green-900 cursor-pointer transition-all duration-300 hover:scale-95">Privacy & Cookies Policy</button>
+                <Link to="/policy" className="w-full mt-2 md:mt-0 md:w-fit shadow-lg px-4 py-2 bg-green-900 cursor-pointer transition-all duration-300 hover:scale-95">Privacy & Cookies Policy</Link>
             </div>
         </div>
     </footer>

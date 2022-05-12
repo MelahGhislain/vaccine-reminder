@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {FaPeopleCarry, FaSignOutAlt, FaShieldAlt, FaChevronDown, FaChevronUp} from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import ChildDetail from './ChildDetail'
 const children = [
     {
@@ -83,7 +84,7 @@ const AccountOverlay = () => {
                     </div>
                     <div className="flex items-center cursor-pointer transition-all duration-300 hover:scale-95 hover:text-teal-500 py-2">
                         <span className="mr-2 font-bold"><FaShieldAlt /></span>
-                        <p className="">Privacy</p>
+                        <Link to="/policy" className="">Privacy</Link>
                     </div>
                     <div className="flex items-center cursor-pointer py-2">
                         <p className="">Sign Out</p>
