@@ -6,14 +6,19 @@ const childSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    decription: {
+    contact: {
         type: String,
         required: true,
     },
-    for_which_week:{
+    age:{
         type: String,
         required: true,
     },
+    route_of_admin: {
+        type: String,
+        required: true,
+    },
+    preventable_diseases:[String]
 }, {timestamps: true})
 
 

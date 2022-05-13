@@ -1,14 +1,20 @@
 import React from 'react'
 import NavBar from '../../components/NavBar'
-// import {images} from "../../constants"
+import {images} from "../../constants"
 import Footer from '../../components/Footer'
+import CustomHero from '../../components/CustomHero'
 import AccountOverlay from './AccountOverlay'
 
 const Account = () => {
   return (
     <div className="flex justify-center items-center flex-col w-screen">
-        <div className='w-screen'>
+        <div className='h-[70vh] w-screen flex flex-col justify-start mb-12'>
             <NavBar />
+            <CustomHero 
+                image={images.midwife}
+                title="MY ACCOUNT "
+                subtitle="Go throught the account settings for more informaton"
+            />
       </div>
       <AccountOverlay />
       <Footer />

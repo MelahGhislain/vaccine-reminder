@@ -4,7 +4,7 @@ const User = require('../models/user.model')
 
 module.exports.createChild = async(req, res, next)=>{
     try{
-        const {parentId} = req.params
+        const parentId = req.user.id
         const isChild = await Child.findOne({first_name: req.body.first_name, last_name: req.body.last_name})
         
         if(isChild) return next({status: "failed", msg: "Child already exist"})
@@ -20,7 +20,7 @@ module.exports.createChild = async(req, res, next)=>{
 }
 
 module.exports.getChildren = async(req, res, next)=>{
-    const {parentId} = req.params
+    const parentId = req.user.id
     try{
         const children = await Child.find({parent: parentId})
         res.status(200).json({status: "success", data: children})
@@ -30,7 +30,7 @@ module.exports.getChildren = async(req, res, next)=>{
 }
 
 module.exports.getChild = async(req, res, next)=>{
-    const {parentId ,id} = req.params
+    const {id} = req.params
     try{
         const child = await Child.findById(id)
         res.status(200).json({status: "success", data: child})
@@ -51,7 +51,8 @@ module.exports.updateChild = async(req, res, next)=>{
 
 module.exports.deleteChild = async(req, res, next)=>{
     try{
-        const {parentId, id} = req.params
+        const {id} = req.params
+        const parentId = req.user.id
 
         const child = await Child.findByIdAndRemove(id)
 

@@ -6,15 +6,15 @@ import {FaDotCircle} from "react-icons/fa"
 const ChildDetail = ({detail}) => {
   return (
       <>
-        {detail && <div className=' px-8 flex w-full h-full'> 
-            <ul className="py-4 w-[70%]">
+        {detail && <div className=' px-8 flex w-full h-full flex-col md:flex-row'> 
+            <ul className="py-4 md:w-[60%] lg:w-[70%]">
                 <h3 className='text-teal-600 pb-2'>Details of {detail.name}</h3>
                 <li className="flex items-center py-1 text-neutral-600">
                     <p className="mr-2">- Name: </p>
                     <p>{detail.name}</p>
                 </li>
                 <li className="flex items-center py-1 text-neutral-600">
-                    <p className="mr-2">- Date of Birth: </p>
+                    <p className="mr-2">- DOB: </p>
                     <p>{detail.dob}</p>
                 </li>
                 <li className="flex items-center py-1 text-neutral-600">
@@ -31,10 +31,10 @@ const ChildDetail = ({detail}) => {
                 </li>
                 <li className="flex items-center py-1 text-neutral-600">
                     <p className="mr-2">- Gender: </p>
-                    <p>{detail.gender.toUpperCase() == "M"? "Male": "Female"}</p>
+                    <p>{detail.gender.toUpperCase() === "M"? "Male": "Female"}</p>
                 </li>
             </ul>
-            <div className="bg-neutral-50 w-[30%] px-4 py-4 flex flex-col">
+            <div className="bg-neutral-50 w-full my-4 md:my-0 md:w-[40%] lg:w-[30%] px-4 py-4 flex flex-col">
                 <h3 className="text-teal-600">Vaccines</h3>
                 <p className="text-sm text-neutral-500 py-4">This vaccines are meant for children between 0 to 5 weeks</p>
                 {detail.vaccines.map(vaccine =>(
