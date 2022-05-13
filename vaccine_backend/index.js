@@ -20,7 +20,7 @@ app.use((req, res, next)=>{
 })
 // 5xx errors
 app.use((err, req, res, next)=>{
-
+    res.status(500).json(err)
 })
 
 

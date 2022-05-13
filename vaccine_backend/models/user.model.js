@@ -13,19 +13,25 @@ const userSchema = new mongoose.Schema({
         unique: true,
     },
     phone:{
-        type: String,
+        type: Number,
         required: true,
         unique: true,
+        min: 9, 
+    },
+    isAdmin:{
+        type: Boolean,
+        default: false
     },
     password:{
         type: String,
         required: true,
-    }
-})
+    },
+    children:[String]
+}, {timestamps: true})
 
-userSchema.pre('save', function(next){
-    const salt = bcrypt.genSalt(10)
-    const hashedPassword = bcrypt.hash(this.password, salt)
+userSchema.pre('save', async function(next){
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(this.password, salt)
     this.password = hashedPassword
     next()
 })
