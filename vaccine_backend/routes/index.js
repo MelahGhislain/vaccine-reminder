@@ -6,7 +6,7 @@ const vaccineRoutes = require('./vaccine.routes')
 module.exports = () =>{
 
     router.use("/user" ,userRoutes())
-    router.use("/parent" ,childRoutes())
+    router.use("/child" ,childRoutes())
     router.use("/vaccine" ,vaccineRoutes())
 
     return router
