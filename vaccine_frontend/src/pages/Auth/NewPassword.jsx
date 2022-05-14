@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {FaChevronLeft, FaKey} from 'react-icons/fa'
-import {Link, NavLink, useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 const NewPassword = () => {
 
@@ -35,7 +35,7 @@ const NewPassword = () => {
             // }).catch( err =>{
             //     console.log(err)
             // });
-            navigate('/')
+            navigate('/reset-message')
         }
         
     }
@@ -43,8 +43,8 @@ const NewPassword = () => {
     <div className='h-screen w-screen md:px-8 py-8  bg-slate-200 flex justify-center items-center'>
       <div className='h-full w-[70%] rounded-2xl flex justify-center items-center bg-slate-100/80 shadow-lg'>
           <div className='flex-1 h-full flex justify-center items-center flex-col px-6 md:px-12'>
-            <FaKey className='text-2xl text-indigo-700 mb-8'/>
-              <h1 className='text-indigo-700 text-xl md:text-3xl font-bold'>Set New Password</h1>
+            <FaKey className='text-2xl text-green-800 mb-8'/>
+              <h1 className='text-green-800 text-xl md:text-3xl font-bold'>Set New Password</h1>
               <p className='text-neutral-500 py-2 mb-6 text-center'>Your new password most be different to previously used password.</p>
               <form className='w-full' onSubmit={handleSubmit}>
                   <div className='w-full rounded'>
@@ -57,9 +57,9 @@ const NewPassword = () => {
                       <input type="password" name='confirmPassword' onChange={handleChange} value={values.confirmPassword}  placeholder='Confirm Password' className="p-2 w-full mb-2 bg-white rounded focus:outline-none" />
                       {error.confirmPassword && <p className='text-sm text-red-500'>{error.confirmPassword}</p>}
                   </div>
-                  <button type='submit' className='w-full p-2 bg-indigo-500 transition-all duration-300 hover:scale-95 text-white rounded mt-4'>Reset Password</button>
+                  <button type='submit' className='w-full p-2 bg-green-800 transition-all duration-300 hover:scale-95 text-white rounded mt-4'>Reset Password</button>
               </form>
-              <a href="/login" className='mt-4 text-sm flex justify-center items-center ml-2 text-indigo-600 transition-all duration-300 hover:scale-95'>
+              <a href="/login" className='mt-4 text-sm flex justify-center items-center ml-2 text-green-800 transition-all duration-300 hover:scale-95'>
                 <span><FaChevronLeft className='mr-2 text-sm' /></span>
                 <p>Back to login</p> 
             </a>

@@ -5,6 +5,7 @@ import Login from "./pages/Auth/Login";
 import ForgotPassword from './pages/Auth/ForgotPassword';
 import CheckEmail from './pages/Auth/CheckEmail';
 import NewPassword from './pages/Auth/NewPassword';
+import ResetMessage from './pages/Auth/ResetMessage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/check-email" element={<CheckEmail />} />
           <Route path="/new-password" element={<NewPassword />} />
+          <Route path="/reset-message" element={<ResetMessage />} />
         </Routes>
       </Router>
     </div>

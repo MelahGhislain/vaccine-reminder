@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {images} from '../../constants'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 const SignUp = () => {
     const fields = {name: "", email: "", phone: "", password: "", confirmPassword: ""}
@@ -46,7 +46,7 @@ const SignUp = () => {
         <div className='h-full w-full rounded-2xl flex justify-center items-center bg-slate-100/80 shadow-lg'>
             <div className='flex-1 h-full flex justify-center items-start flex-col px-6 md:px-12'>
                 
-                <h1 className='text-indigo-700 text-xl md:text-3xl font-bold'>Sign Up</h1>
+                <h1 className='text-green-700 text-xl md:text-3xl font-bold'>Sign Up</h1>
                 <p className=' text-sm text-neutral-500 py-2'>Please enter your details</p>
                 <form className='w-full' onSubmit={handleSubmit}>
                     <div className='w-full rounded'>
@@ -74,11 +74,11 @@ const SignUp = () => {
                         <input type="password" name='confirmPassword' onChange={handleChange} value={values.confirmPassword}  placeholder='Password' className="p-2 w-full mb-2 bg-white rounded focus:outline-none" />
                         {error.confirmPassword && <p className='text-sm text-red-500'>{error.confirmPassword}</p>}
                     </div>
-                    <button type='submit' className='w-full p-2 bg-indigo-500 transition-all duration-300 hover:scale-95 text-white rounded mt-4'>Sign Up</button>
+                    <button type='submit' className='w-full p-2 bg-green-800 transition-all duration-300 hover:scale-95 text-white rounded mt-4'>Sign Up</button>
                 </form>
                 <div className='mt-4 text-sm flex justify-center items-center'>
                     <p className=''>Already have an account?</p>
-                    <a href="/login" className='ml-2 text-lg text-indigo-600 transition-all duration-300 hover:scale-95'>Login</a>
+                    <a href="/login" className='ml-2 text-lg text-bold text-green-800 transition-all duration-300 hover:scale-95'>Login</a>
                 </div>
             </div>
             <div className='flex-1 h-full w-full relative hidden md:flex'>
