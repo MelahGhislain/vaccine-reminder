@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {images} from '../../constants'
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const SignUp = () => {
     const fields = {name: "", email: "", phone: "", password: "", confirmPassword: ""}
@@ -78,7 +78,7 @@ const SignUp = () => {
                 </form>
                 <div className='mt-4 text-sm flex justify-center items-center'>
                     <p className=''>Already have an account?</p>
-                    <a href="/login" className='ml-2 text-lg text-bold text-green-800 transition-all duration-300 hover:scale-95'>Login</a>
+                    <Link to="/login" className='ml-2 text-lg text-bold text-green-800 transition-all duration-300 hover:scale-95'>Login</Link>
                 </div>
             </div>
             <div className='flex-1 h-full w-full relative hidden md:flex'>
