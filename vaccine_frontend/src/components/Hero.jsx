@@ -16,11 +16,13 @@ const Hero = () => {
                 <p className='text-neutral-200 py-4'>A unique and cutting edge way to to interact with your patients vaccine needs.</p>
                 <div className='flex items-center flex-col md:flex-row w-full'>
                   <span className='md:pr-2 w-full mb-2 md:mb-0'>
-                    <Link to="/registration">
+                    <Link to="/registration" className="w-full">
                       <PrimaryButton text="Register Now" />
                     </Link>
                   </span>
-                  <OutlineButton text="Practitional login" />
+                  <Link to="/login" className="w-full">
+                    <OutlineButton text="Practitional login" />
+                  </Link>
                 </div>
             </div>
             <div className='md:w-[30%] lg:w-[50%] h-full hidden md:flex'>

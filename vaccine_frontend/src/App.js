@@ -8,6 +8,7 @@ import NewPassword from './pages/Auth/NewPassword';
 import ResetMessage from './pages/Auth/ResetMessage';
 import Registration from './pages/Registration/Registration';
 import Contact from './pages/Contact/Contact';
+import About from './pages/About/About';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/reset-message" element={<ResetMessage />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Router>
     </div>
