@@ -8,7 +8,8 @@ const navItems = [
     {name:'home', route: "/"}, 
     {name:'vaccines', route: "/vaccine"}, 
     {name:'about', route: "/about"}, 
-    {name:'contact', route:"/contact"}
+    {name:'contact', route:"/contact"},
+    {name:'account', route:"/account"},
 ]
 
 

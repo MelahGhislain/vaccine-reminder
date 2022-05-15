@@ -3,11 +3,11 @@ const userController = require('../controllers/user.controller')
 
 
 module.exports = () =>{
-    router.post('/', userController.createUser)
+    router.post('/register', userController.createUser)
     router.get('/', userController.getUsers)
     router.get('/:id', userController.getUser)
-    router.put('/:id', userController.updateUser)
-    router.delete('/:id', userController.deleteUser)
+    router.put('/:id/update', userController.updateUser)
+    router.delete('/:id/delete', userController.deleteUser)
 
     return router
 }

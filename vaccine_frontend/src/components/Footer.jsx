@@ -1,13 +1,16 @@
 import React from 'react'
 import {FaClock, FaFacebook, FaInstagram, FaPhoneAlt, FaEnvelope, FaWhatsapp } from 'react-icons/fa'
 import PrimaryButton from './PrimaryButton'
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
   return (
     <footer className="bg-neutral-50">
         <div className="flex items-start p-12 flex-col lg:flex-row">
             <div className="flex-1 md:pr-10 py-4 lg:py-0">
-                <div className='flex-1 flex items-center text-2xl font-bold'><span className='mr-1 text-gray-700'>Vaccine</span> <FaClock className='text-green-600'/></div>
+                <Link to="/">
+                    <div className='flex-1 flex items-center text-2xl font-bold'><span className='mr-1 text-gray-700'>Vaccine</span> <FaClock className='text-green-600'/></div>
+                </Link>
                 <p className="py-4 text-neutral-600 sm:w-2/3 lg:w-full">The vaccine app is an official digital vaccine reminder. Your personal vaccine 
                     vaccine record the you can never lose. From birth to adulthood.
                 </p>
