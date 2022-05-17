@@ -8,6 +8,11 @@ import NewPassword from './pages/Auth/NewPassword';
 import ResetMessage from './pages/Auth/ResetMessage';
 import Registration from './pages/Registration/Registration';
 import Contact from './pages/Contact/Contact';
+import About from './pages/About/About';
+import Vaccine from './pages/Vaccine/Vaccine';
+import Vaccines from './pages/Vaccine/Vaccines';
+import Account from './pages/Account/Account';
+import Policy from './pages/TermsAndPolicy/Policy';
 
 function App() {
   return (
@@ -23,6 +28,11 @@ function App() {
           <Route path="/reset-message" element={<ResetMessage />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/vaccine" element={<Vaccine />} />
+          <Route path="/vaccines" element={<Vaccines />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/policy" element={<Policy />} />
         </Routes>
       </Router>
     </div>

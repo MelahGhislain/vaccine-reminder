@@ -4,17 +4,26 @@ const childSchema = new mongoose.Schema({
     first_name: {
         type: String,
         required: true,
-        unique: true
     },
     last_name: {
         type: String,
         required: true,
-        unique: true,
     },
     dob:{
         type: String,
         required: true,
-        unique: true,
+    },
+    height:{
+        type: String,
+        required: true,
+    },
+    weight:{
+        type: String,
+        required: true,
+    },
+    gender:{
+        type: String,
+        required: true,
     },
     parent:{
         type: String,
@@ -24,4 +33,4 @@ const childSchema = new mongoose.Schema({
 
 
 
-module.exports = mongoose.model('user', childSchema)
+module.exports = mongoose.model('child', childSchema)

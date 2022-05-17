@@ -7,6 +7,8 @@ const jwt = require('jsonwebtoken')
 
 module.exports.createUser = async(req, res, next)=>{
     try{
+        const isUser = await User.findOne({name: req.body.name})
+        if(isUser) return next({status: "failed", msg: "User already exist"})
         const user = await User.create(req.body)
         res.status(201).json({status: "success", data: user})
     }catch(err){
@@ -26,6 +28,8 @@ module.exports.getUsers = async(req, res, next)=>{
 module.exports.getUser = async(req, res, next)=>{
     const id = req.params.id
     try{
+        const isUser = await User.findById(id)
+        if(isUser === null) return next({status: "failed", msg: "User not found exist"})
         const user = await User.findById(id).select("-password")
         res.status(200).json({status: "success", data: user})
     }catch(err){
