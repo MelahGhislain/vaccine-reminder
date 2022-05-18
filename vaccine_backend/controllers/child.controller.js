@@ -1,7 +1,6 @@
 const Child = require('../models/child.model')
 const User = require('../models/user.model')
 
-
 module.exports.createChild = async(req, res, next)=>{
     try{
         const parentId = req.user.id

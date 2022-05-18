@@ -21,6 +21,9 @@ const childSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    age:{
+        type: String,
+    },
     gender:{
         type: String,
         required: true,
