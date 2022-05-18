@@ -70,7 +70,8 @@ const AccountOverlay = () => {
   return (
     <section className=' w-full py-4'>
         <div className="flex h-full">
-            {openDrawer && <div className={`flex-none flex md:w-[200px] lg:w-[250px] bg-neutral-100`}>
+        {/* openDrawer &&  */}
+            {<div className={`flex-none flex md:w-[200px] lg:w-[250px] bg-neutral-100`}>
                 <div className="h-full w-full">
                     <div className="flex flex-col  p-4">
                         <div className='h-[70px] w-[70px] rounded-full bg-neutral-600 cursor-pointer'></div>

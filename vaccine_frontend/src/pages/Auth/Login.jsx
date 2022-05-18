@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import {images} from '../../constants'
-// import {Link, NavLink} from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import  URLS, {images} from '../../constants'
+import AppContext from '../../AppContext/AppContext'
+import Dialog from '../../components/Dialog'
+import {Link, useNavigate} from 'react-router-dom'
+import axios from "axios"
 
 
 const Login = () => {
@@ -10,6 +12,8 @@ const Login = () => {
     const [values, setValues] = useState(fields)
     const [error,  setError] = useState(fields)
     const navigate = useNavigate()
+    const {setOpenDialog, setUser} = useContext(AppContext)
+    const [errorMessage, setErrorMessage] = useState("")
 
     const handleChange =(e)=>{
         setValues({...values, [e.target.name]: e.target.value})
@@ -27,20 +31,34 @@ const Login = () => {
         verifyField("name")
         verifyField("password")
         if(values.name && values.password){
-            // axios.post(`${BASE_URL}/students`, value).then( response =>{
-            //     setIsSubmitted(true)
-            //     setValue(data=>{ return {name: "", matricule: "", present: false}})
-            //     setError({ name: "", matricule: "" })
-                
-            // }).catch( err =>{
-            //     console.log(err)
-            // });
-            navigate("/")
+            axios.post(`${URLS.BASE_URL}/user/login`, values).then( res =>{
+                // console.log(res.data.data) 
+                const status = res.data.status
+                if(status === "success"){
+                    // Store the data in local storage for later use
+                    const data = res.data.data
+                    localStorage.setItem("user", JSON.stringify(data))
+                    // set the user data to be consumed globaly
+                    setUser(data)
+                    navigate("/")
+                }else{
+                    setOpenDialog(true)
+                }
+            }).catch( err =>{
+                const msg = err.response.data.msg
+                setErrorMessage(msg)
+                setOpenDialog(true)
+
+                console.log(err)
+            });
         }
         
     }
   return (
     <div className='h-screen w-screen md:px-8 md:py-8  bg-slate-200 '>
+        <Dialog>
+            <p className="text-red-600">{errorMessage? errorMessage : "Failed to login please try again"}</p>
+        </Dialog>
       <div className='h-full w-full rounded-2xl flex justify-center items-center bg-slate-100/80 shadow-lg'>
           <div className='flex-1 h-full flex justify-center items-start flex-col px-6 md:px-12'>
               
@@ -64,7 +82,7 @@ const Login = () => {
               </form>
               <div className='mt-4 text-sm flex justify-center items-center'>
                   <p className=''>Don't have an account?</p>
-                  <a href="/signup" className='ml-2 text-lg text-green-800 text-bold transition-all duration-300 hover:scale-95'>Sign Up</a>
+                  <Link to="/signup" className='ml-2 text-lg text-green-800 text-bold transition-all duration-300 hover:scale-95'>Sign Up</Link>
               </div>
           </div>
           <div className='flex-1 h-full w-full relative hidden md:flex'>

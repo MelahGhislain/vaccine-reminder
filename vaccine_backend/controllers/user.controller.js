@@ -1,6 +1,5 @@
 const User = require('../models/user.model')
 const bcrypt = require('bcrypt')
-const Tokens = require('../models/tokens')
 const createToken = require('../utils/create_token')
 const jwt = require('jsonwebtoken')
 
@@ -57,21 +56,23 @@ module.exports.deleteUser = async(req, res, next)=>{
     }
 }
 
+
+
 module.exports.login = async(req, res, next)=>{
 // verify if user is login
     try{
         const user = await User.findOne({name: req.body.name})
-        if(!user) return res.status(404).json({status: "failed", msg: "User not found"})
-        const isPassword = bcrypt.compare(req.body.password, user.password)
+        if(!user) return res.status(404).json({status: "failed", msg: "User not found please register"})
+        const isPassword = await bcrypt.compare(req.body.password, user.password)
         if(!isPassword) return res.status(404).json({status: "failed", msg: "Invalid password"})
 
         const accessToken = createToken({id: user._id, isAdmin: user.isAdmin}, process.env.ACCESS_KEY_SECRET, '3h')
         const refreshToken = createToken({id: user._id, isAdmin: user.isAdmin}, process.env.REFRESH_KEY_SECRET, '3d')
-        const tokens = await Tokens.find({})
-        tokens.refreshToken.push(refreshToken)
-        tokens.save()
+        
 
-        res.status(200).json({status: "success", data: {...user, accessToken, refreshToken}})
+        const userData = await User.findOneAndUpdate({name: req.body.name},{$set: {token: refreshToken}})
+
+        res.status(200).json({status: "success", data: {...userData._doc, accessToken, refreshToken}})
 
     }catch(err){
         next({status: "failed", msg: "Could not login user", err})

@@ -17,6 +17,7 @@ import Policy from './pages/TermsAndPolicy/Policy';
 function App() {
   return (
     <div className="App">
+      
       <Router>
         <Routes>
           <Route path="/" exact element={<Home />} />

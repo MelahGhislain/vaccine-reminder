@@ -13,9 +13,8 @@ const userSchema = new mongoose.Schema({
         unique: true,
     },
     phone:{
-        type: Number,
+        type: String,
         required: true,
-        unique: true,
         min: 9, 
     },
     isAdmin:{
@@ -25,6 +24,9 @@ const userSchema = new mongoose.Schema({
     password:{
         type: String,
         required: true,
+    },
+    token:{
+        type: String,
     },
     children:[String]
 }, {timestamps: true})
