@@ -6,13 +6,13 @@ module.exports.createChild = async(req, res, next)=>{
     try{
         const parentId = req.user.id
         const isChild = await Child.findOne({first_name: req.body.first_name, last_name: req.body.last_name})
-        
+        console.log(isChild)
         if(isChild) return next({status: "failed", msg: "Child already exist"})
         
         const child = await Child.create({...req.body, parent: parentId}) 
-
+        
         await User.findByIdAndUpdate(parentId, {$addToSet: {children: child._id}})
-
+       
         res.status(201).json({status: "success", data: child})
     }catch(err){
         next({status: "failed", msg: "Could not create child", err})

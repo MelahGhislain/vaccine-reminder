@@ -1,10 +1,16 @@
-import React,{ useState } from 'react'
+import axios from 'axios'
+import React,{ useContext, useState } from 'react'
+import AppContext from '../../AppContext/AppContext'
+import Dialog from '../../components/Dialog'
+import  URLS from '../../constants'
 
 const fields = {first_name: "", last_name: "", dob: "", gender: "", height:"", weight: ""}
 
 const RegistrationForm = () => {
     const [values, setValues] = useState(fields)
     const [error,  setError] = useState(fields)
+    const {user, setOpenDialog} = useContext(AppContext)
+    const [message, setMessage] = useState("")
 
     const handleChange =(e)=>{
         setValues({...values, [e.target.name]: e.target.value})
@@ -26,13 +32,25 @@ const RegistrationForm = () => {
         verifyField("height")
         verifyField("weight")
         if(values.first_name && values.last_name && values.dob && values.gender && values.height && values.weight){
-            // axios.post(`${BASE_URL}/students`, value).then( response =>{
-            //     setValue(data=>{ return {first_name: "", last_name: "", dob: "", gender: "", height:"", weight: ""}})
-            //     setError({first_name: "", last_name: "", dob: "", gender: "", height:"", weight: ""})
+            axios.post(`${URLS.BASE_URL}/child/create`, values, {headers:{Authorization: `Bearer ${user.token}`}}).then( res =>{
+                const status = res.data.status
+                if(status === "success"){
+                    setValues(data=>{ return {first_name: "", last_name: "", dob: "", gender: "", height:"", weight: ""}})
+                    setError({first_name: "", last_name: "", dob: "", gender: "", height:"", weight: ""})
+                    
+                    setMessage("Successfully created child")
+                    setOpenDialog(true)
+                }else{
+                    setOpenDialog(true)
+                }
                 
-            // }).catch( err =>{
-            //     console.log(err)
-            // });
+                
+            }).catch( err =>{
+                const msg = err.response.data.msg
+                setMessage(msg)
+                setOpenDialog(true)
+                console.log(err)
+            });
         }
         
     }
@@ -40,6 +58,14 @@ const RegistrationForm = () => {
     
   return (
     <section className="bg-gray-100 w-full mt-12 py-20 md:py-24 px-8 sm:px-12">
+        { message.includes("Successfully")? 
+            <Dialog>
+                <p className="text-green-600">{message}</p>
+            </Dialog> :
+            <Dialog>
+                <p className="text-red-600">{message? message : "Failed to login please try again"}</p>
+            </Dialog>
+        }
         <div className="px-0 md:px-18 lg:px-24">
             <h2 className="mb-8">Enter Child Information</h2>
             <form className='w-full' onSubmit={handleSubmit}>

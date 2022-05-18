@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {FaPeopleCarry, FaSignOutAlt, FaShieldAlt, FaChevronDown, FaChevronUp, FaArrowRight, FaArrowLeft} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import ChildDetail from './ChildDetail'
+import axios from 'axios'
+import  URLS from '../../constants'
+import AppContext from '../../AppContext/AppContext'
+
+
 const children = [
     {
         id: "child-id-1",
@@ -62,9 +67,26 @@ const AccountOverlay = () => {
     const [drop, setDrop] = useState(false)
     const [openDrawer, setOpenDrawer] = useState(false)
     const [child, setChild] = useState(children[0])
+    const {user, setUser} = useContext(AppContext)
+
+
     const handleSelect = (index) => {
         setChild(children[index])
         setOpenDrawer(false)
+    }
+
+    const logout = () => {
+        axios.get(`${URLS.BASE_URL}/user/logout`, {headers:{Authorization: `Bearer ${user.token}`}}).then( res =>{
+           
+            const status = res.data.status
+            if(status === "success"){
+                localStorage.removeItem("user")
+                setUser({})
+            }
+        }).catch( err =>{
+            
+            console.log(err)
+        });
     }
 
   return (
@@ -95,7 +117,7 @@ const AccountOverlay = () => {
                             <span className="mr-2 font-bold"><FaShieldAlt /></span>
                             <Link to="/policy" className="">Privacy</Link>
                         </div>
-                        <div className="flex items-center cursor-pointer py-2">
+                        <div onClick={logout} className="flex items-center cursor-pointer py-2">
                             <p className="">Sign Out</p>
                             <span className="ml-2 font-bold"><FaSignOutAlt /></span>
                         </div>

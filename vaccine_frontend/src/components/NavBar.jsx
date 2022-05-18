@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {FaClock, FaBars, FaWindowClose } from 'react-icons/fa'
 import {Link} from 'react-router-dom'
+import AppContext from '../AppContext/AppContext'
 
 
 
@@ -14,8 +15,21 @@ const navItems = [
 
 
 const NavBar = () => {
+    const [navLinks, setNavLinks] = useState(navItems)
     const [active, setActive] = useState('home')
     const [openDrawer, setOpenDrawer] = useState(false)
+    const {user} = useContext(AppContext)
+
+    
+    useEffect(()=>{
+        const items = navItems.filter(item =>{
+            if(item.name !== "account") return item
+            else if(item.name === "account" && user.token) return item
+            return null
+        })
+        setNavLinks(items)
+    },[user])
+
   return (
       <div className=' w-full fixed top-0 z-10 bg-white'>
         <nav className="flex-none flex items-center px-8 py-2">
@@ -24,16 +38,19 @@ const NavBar = () => {
             </Link>
             
             <ul className='flex-none hidden md:flex justify-center items-center '>
-                {navItems.map((nav, index) =>(
-                    <Link to={nav.route} key={index}>
-                        <li onClick={()=>setActive(nav.name)} className={`text-sm font-medium py-2 px-4 mx-1 cursor-pointer transition-all duration-300 hover:text-green-600 ${active === nav.name? "text-green-600": "" }`}>
-                            {nav.name.toUpperCase()}
-                        </li>
-                    </Link>
+                {navLinks.map((nav, index) =>(
+                    
+                        <Link to={nav.route} key={index}>
+                            <li onClick={()=>setActive(nav.name)} className={`text-sm font-medium py-2 px-4 mx-1 cursor-pointer transition-all duration-300 hover:text-green-600 ${active === nav.name? "text-green-600": "" }`}>
+                                {nav.name.toUpperCase()}
+                            </li>
+                        </Link>
                 ))}
-                <Link to="/signup">
+                
+
+                {!user.token && <Link to="/signup">
                     <li className='text-gray-100 bg-green-600 border-2 border-green-600 m-1 rounded py-1 px-4 cursor-pointer text-sm font-medium shadow-md transition-all duration-300 hover:scale-95 hover:shadow-sm'>GET STARTED</li>
-                </Link>
+                </Link>}
             </ul>
             {!openDrawer?
                 <FaBars className='cursor-pointer md:hidden' onClick={()=>setOpenDrawer(true)}/>
@@ -44,18 +61,18 @@ const NavBar = () => {
         {openDrawer && <nav className="flex-none flex items-center px-4 py-2 md:hidden">
             
             <ul className='flex-none flex justify-center items-start  flex-col'>
-                {navItems.map((nav, index) =>(
+                {navLinks.map((nav, index) =>(
                     <Link to={nav.route} key={index}>
                         <li to={nav.route} onClick={()=>setActive(nav.name)} className={`text-sm font-medium py-2 px-4 mx-1 cursor-pointer transition-all duration-300 hover:text-green-600 ${active === nav.name? "text-green-600": "" }`}>
                             {nav.name.toUpperCase()}
                         </li>
                     </Link>
                 ))}
-                <Link to="/signup">
+                {!user.token && <Link to="/signup">
                     <div className='px-4'>
                         <li className='text-gray-100 bg-green-600 border-2 border-green-600 m-1 rounded py-1 px-4 cursor-pointer text-sm font-medium shadow-md transition-all duration-300 hover:scale-95 hover:shadow-sm'>GET STARTED</li>
                     </div>
-                </Link>
+                </Link>}
             </ul>
         </nav>}
     </div>

@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Vote from './Vote'
 import {FaDotCircle}  from "react-icons/fa"
+import AppContext from '../../AppContext/AppContext'
 
 const VaccineServices = () => {
+  const {user} = useContext(AppContext)
   return (
     <section className="flex flex-col justify-center items-start px-10 md:px-20 py-8">
         <h2 className="py-2 text-green-700">Vaccination Reminder Services</h2>
@@ -25,7 +27,7 @@ const VaccineServices = () => {
             <li className='flex items-center text-sm pb-1'><FaDotCircle className='text-xs mr-2'/> Child height</li>
             <li className='flex items-center text-sm pb-1'><FaDotCircle className='text-xs mr-2'/> Child weight</li>
             <li className='flex items-center text-sm '><FaDotCircle className='text-xs mr-2'/> Child gender</li>
-            <li className='mt-4'>Click <Link to='/registration' className='text-green-500'>here</Link> to get started</li>
+            <li className='mt-4'>Click <Link to={user.token? "/registration" : "/login"} className='text-green-500'>here</Link> to get started</li>
         </ul>
 
         <h6 className="pt-8 pb-1">How to Get the service?</h6>
