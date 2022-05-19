@@ -6,12 +6,16 @@ const childSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    abbrevation:{
+        type: String,
+        required: true,
+    },
     contact: {
         type: String,
         required: true,
     },
     age:{
-        type: String,
+        type: Number,
         required: true,
     },
     route_of_admin: {
