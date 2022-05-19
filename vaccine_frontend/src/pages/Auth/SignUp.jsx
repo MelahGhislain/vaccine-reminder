@@ -1,11 +1,17 @@
-import React, { useState } from 'react'
-import {images} from '../../constants'
-import {Link} from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import  URLS, {images} from '../../constants'
+import {Link, useNavigate} from 'react-router-dom'
+import axios from "axios"
+import AppContext from '../../AppContext/AppContext'
+import Dialog from '../../components/Dialog'
 
 const SignUp = () => {
     const fields = {name: "", email: "", phone: "", password: "", confirmPassword: ""}
     const [values, setValues] = useState(fields)
     const [error,  setError] = useState(fields)
+    const {setOpenDialog} = useContext(AppContext)
+    const navigate = useNavigate()
+    const [errorMessage, setErrorMessage] = useState("")
 
     const handleChange =(e)=>{
         setValues({...values, [e.target.name]: e.target.value})
@@ -27,15 +33,23 @@ const SignUp = () => {
         verifyField("phone")
         verifyField("password")
         verifyField("confirmPassword")
+        
         if(values.name && values.email && values.phone && values.password){
-            // axios.post(`${BASE_URL}/students`, value).then( response =>{
-            //     setIsSubmitted(true)
-            //     setValue(data=>{ return {name: "", matricule: "", present: false}})
-            //     setError({ name: "", matricule: "" })
-                
-            // }).catch( err =>{
-            //     console.log(err)
-            // });
+            axios.post(`${URLS.BASE_URL}/user/register`, values).then( res =>{
+                // console.log(res.data.status) 
+                const status = res.data.status
+                if(status === "success"){
+                    navigate("/login")
+                }else{
+                    setOpenDialog(true)
+                }
+            }).catch( err =>{
+                const msg = err.response.data.msg
+                setErrorMessage(msg)
+                setOpenDialog(true)
+
+                console.log(err)
+            });
         }
         
     }
@@ -43,6 +57,9 @@ const SignUp = () => {
 
   return (
     <div className='h-screen w-screen md:px-8  bg-slate-200 '>
+        <Dialog>
+            <p className="text-red-600">{errorMessage? errorMessage : "Failed to register please try again"}</p>
+        </Dialog>
         <div className='h-full w-full rounded-2xl flex justify-center items-center bg-slate-100/80 shadow-lg'>
             <div className='flex-1 h-full flex justify-center items-start flex-col px-6 md:px-12'>
                 
@@ -61,7 +78,7 @@ const SignUp = () => {
                     </div>
                     <div className='w-full rounded'>
                         <label htmlFor="phone" className='text-neutral-600 text-sm '>Phone number*</label>
-                        <input type="text" name='phone' onChange={handleChange} value={values.phone}  placeholder='Phone number' className="p-2 w-full mb-2 rounded bg-white focus:outline-none" />
+                        <input type="number" name='phone' onChange={handleChange} value={values.phone}  placeholder='Phone number' className="p-2 w-full mb-2 rounded bg-white focus:outline-none" />
                         {error.phone && <p className='text-sm text-red-500'>{error.phone}</p>}
                     </div>
                     <div className='w-full rounded'>

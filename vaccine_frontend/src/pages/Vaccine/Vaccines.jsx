@@ -197,8 +197,8 @@ const Vaccines = () => {
             <h3 className="text-teal-700 mb-2">Abbrevations</h3>
             <ul>
                 {
-                    abbrevations.map((value)=>(
-                        <li className="py-2 border-b">
+                    abbrevations.map((value, index)=>(
+                        <li key={index} className="py-2 border-b">
                             <span>{value.abbrevation}: </span>
                             <span className="italic text-sm text-teal-500">{value.meaning}</span>
                         </li>

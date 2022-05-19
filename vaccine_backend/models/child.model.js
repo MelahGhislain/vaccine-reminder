@@ -11,7 +11,7 @@ const childSchema = new mongoose.Schema({
     },
     dob:{
         type: String,
-        required: true,
+        required: [true, "Date of birth is required"],
     },
     height:{
         type: String,
@@ -20,6 +20,9 @@ const childSchema = new mongoose.Schema({
     weight:{
         type: String,
         required: true,
+    },
+    age:{
+        type: String,
     },
     gender:{
         type: String,
