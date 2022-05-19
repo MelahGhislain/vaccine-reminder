@@ -3,6 +3,7 @@ import {FaPeopleCarry, FaSignOutAlt, FaShieldAlt, FaChevronDown, FaChevronUp, Fa
 import { Link } from 'react-router-dom'
 import ChildDetail from './ChildDetail'
 import axios from 'axios'
+import {useMediaQuery} from 'react-responsive'
 import  URLS from '../../constants'
 import AppContext from '../../AppContext/AppContext'
 
@@ -88,6 +89,8 @@ const AccountOverlay = () => {
             console.log(err)
         });
     }
+
+    const isDesktop = useMediaQuery({query: "(min-width: 1024px)"})
 
   return (
     <section className=' w-full py-4'>
