@@ -4,6 +4,7 @@ import AppContext from './AppContext'
 
 const ContextProvider = ({children}) => {
     const [openDialog, setOpenDialog] = useState(false)
+    const [stateChanged, setStateChanged] = useState(false)
     const [user, setUser] = useState({})
     const [updatedRefreshToken, setUpdatedRefreshToken] = useState(false)
     // this will run each time you refresh the app and get the updated user data
@@ -18,7 +19,7 @@ const ContextProvider = ({children}) => {
     }, 3000)
     
   return (
-    <AppContext.Provider value={{openDialog, setOpenDialog, user, setUser, updatedRefreshToken, setUpdatedRefreshToken}}>
+    <AppContext.Provider value={{openDialog, setOpenDialog, user, setUser, updatedRefreshToken, setUpdatedRefreshToken, stateChanged, setStateChanged}}>
         {children}
     </AppContext.Provider>
   )

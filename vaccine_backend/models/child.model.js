@@ -21,6 +21,9 @@ const childSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    blood_group:{
+        type: String,
+    },
     age:{
         type: Number,
         required: true

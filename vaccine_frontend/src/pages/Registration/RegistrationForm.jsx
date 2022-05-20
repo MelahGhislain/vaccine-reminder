@@ -4,7 +4,7 @@ import AppContext from '../../AppContext/AppContext'
 import Dialog from '../../components/Dialog'
 import  URLS from '../../constants'
 
-const fields = {first_name: "", last_name: "", dob: "", gender: "", height:"", weight: ""}
+const fields = {first_name: "", last_name: "", dob: "", gender: "", height:"", weight: "", blood_group: ""}
 
 const RegistrationForm = () => {
     const [values, setValues] = useState(fields)
@@ -31,12 +31,13 @@ const RegistrationForm = () => {
         verifyField("gender")
         verifyField("height")
         verifyField("weight")
-        if(values.first_name && values.last_name && values.dob && values.gender && values.height && values.weight){
+        verifyField("blood_group")
+        if(values.first_name && values.last_name && values.dob && values.gender && values.height && values.weight && values.blood_group){
             axios.post(`${URLS.BASE_URL}/child/create`, values, {headers:{Authorization: `Bearer ${user.token}`}}).then( res =>{
                 const status = res.data.status
                 if(status === "success"){
-                    setValues(data=>{ return {first_name: "", last_name: "", dob: "", gender: "", height:"", weight: ""}})
-                    setError({first_name: "", last_name: "", dob: "", gender: "", height:"", weight: ""})
+                    setValues(data=>{ return {first_name: "", last_name: "", dob: "", gender: "", height:"", weight: "", blood_group: ""}})
+                    setError({first_name: "", last_name: "", dob: "", gender: "", height:"", weight: "", blood_group: ""})
                     
                     setMessage("Successfully created child")
                     setOpenDialog(true)
@@ -94,6 +95,12 @@ const RegistrationForm = () => {
                         <input type="text" name='weight' onChange={handleChange} value={values.weight}  placeholder='Weight(kg)' className="p-2 w-full mb-2 rounded bg-white focus:outline-none" />
                         {error.weight && <p className='text-sm text-red-500'>{error.weight}</p>}
                     </div>
+                </div>
+                {/* Blood group */}
+                <div className='w-full py-2 rounded'>
+                    <label htmlFor="blood_group" className='text-neutral-600 text-sm'>Blood Group*</label>
+                    <input type="text" name='blood_group' onChange={handleChange} value={values.blood_group}  placeholder='Blood Group' className="p-2 w-full mb-2 bg-white rounded focus:outline-none" />
+                    {error.blood_group && <p className='text-sm text-red-500'>{error.blood_group}</p>}
                 </div>
                 {/* Date of Birth */}
                 <div className='w-full py-2 rounded'>
