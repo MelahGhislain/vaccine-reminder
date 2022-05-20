@@ -84,6 +84,7 @@ module.exports.logout = async(req, res, next)=>{
         const id = req.user.id
         console.log(id)
         const user = await User.findById(id)
+        // console.log(user)
         if(!user) return res.status(404).json({status: "failed", msg: "User not found"})
 
         const userData = await User.findByIdAndUpdate(id, {$set: {refreshToken: ""}}, {new: true})
