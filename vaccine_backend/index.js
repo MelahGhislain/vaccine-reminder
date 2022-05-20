@@ -3,6 +3,7 @@ require('dotenv').config()
 const cors = require('cors')
 const cron = require('node-cron')
 const moment = require('moment')
+const multer = require('multer')
 
 const connect = require('./db')
 const app = express()
@@ -17,6 +18,28 @@ app.use(express.json())
 
 // route middleware
 app.use('/api/v1', routes())
+
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, 'images/')
+    },
+    filename: (req, file, cb) => {
+      cb(null, file.originalname)
+    },
+})
+
+const upload = multer({ storage: storage })
+app.post('/api/v1/image/upload', upload.single('file'),function (req, res) {
+    console.log("======== =============")
+    upload(req, res, err => {
+        if(err) console.log(err)
+        console.log("success")  
+        return res.json({ status: "success", image: res.req.file.path, fileName: res.req.file.filename})
+    })
+    
+    
+})
 
 
 // errors

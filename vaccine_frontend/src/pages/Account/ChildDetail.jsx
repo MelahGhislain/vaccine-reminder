@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 const ChildDetail = ({detail}) => {
-
+    console.log(detail)
     const handleCheck =(e)=>{
         console.log(e.target.checked)
         e.target.checked = !e.target.checked

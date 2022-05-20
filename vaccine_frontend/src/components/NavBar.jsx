@@ -33,7 +33,7 @@ const NavBar = () => {
     },[user])
 
   return (
-      <div className=' w-full fixed top-0 z-10 bg-white'>
+      <div className=' w-full fixed top-0 z-20 bg-white'>
         <nav className="flex-none flex items-center px-8 py-2">
             <Link to="/" className='flex-1'>
                 <div className=' flex items-center text-2xl font-bold'><span className='mr-1 text-gray-700'>Vaccine</span> <FaClock className='text-green-600'/></div>

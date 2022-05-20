@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
-import {FaPeopleCarry, FaSignOutAlt, FaShieldAlt, FaChevronDown, FaChevronUp, FaArrowRight, FaArrowLeft} from 'react-icons/fa'
+import {FaPeopleCarry, FaSignOutAlt, FaShieldAlt, FaChevronDown, FaChevronUp, FaArrowRight, FaArrowLeft, FaPencilAlt} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import ChildDetail from './ChildDetail'
 import axios from 'axios'
 import  URLS from '../../constants'
 import AppContext from '../../AppContext/AppContext'
 import Profile from './Profile'
+import UploadImage from './UploadImage'
 
 const AccountOverlay = () => {
     const [children, setChildren] = useState([])
@@ -14,6 +15,7 @@ const AccountOverlay = () => {
     const [openDrawer, setOpenDrawer] = useState(false)
     const [child, setChild] = useState(children[0])
     const {user, setUser, stateChanged} = useContext(AppContext)
+    const [openOverlay, setOpenOverlay] = useState(false)
 
 
     const handleSelect1 = (index) => {
@@ -55,11 +57,15 @@ const AccountOverlay = () => {
 
   return (
     <section className=' w-full py-4'>
+        <UploadImage openOverlay={openOverlay} setOpenOverlay={setOpenOverlay} />
         <div className="flex h-full">
             {openDrawer &&  <div className={`flex-none flex md:hidden md:w-[200px] lg:w-[250px] bg-neutral-100`}>
                 <div className="h-full w-full">
                     <div className="flex flex-col  p-4">
-                        <div onClick={()=>setOpenChildrenDashboard(false)} className='h-[70px] w-[70px] rounded-full bg-neutral-600 cursor-pointer'></div>
+                        <div className='relative w-fit'>
+                            <div onClick={()=>setOpenChildrenDashboard(false)} className='h-[70px] w-[70px] rounded-full bg-neutral-600 cursor-pointer'></div>
+                            <div onClick={()=>setOpenOverlay(true)} className='absolute bg-white cursor-pointer text-teal-500 p-2 rounded-full right-0 bottom-0 z-10 text-sm'><FaPencilAlt /></div>
+                        </div>
                         <h6 className='mt-2 px-2'>{user.name.toUpperCase()}</h6>
                     </div>
                     <div className="border"></div>
@@ -91,7 +97,10 @@ const AccountOverlay = () => {
             <div className={`hidden flex-none md:flex md:w-[200px] lg:w-[250px] bg-neutral-100`}>
                 <div className="h-full w-full">
                     <div className="flex flex-col  p-4">
-                        <div onClick={()=>setOpenChildrenDashboard(false)} className='h-[70px] w-[70px] rounded-full bg-neutral-600 cursor-pointer'></div>
+                        <div className='relative w-fit'>
+                            <div onClick={()=>setOpenChildrenDashboard(false)} className='h-[70px] w-[70px] rounded-full bg-neutral-600 cursor-pointer'></div>
+                            <div onClick={()=>setOpenOverlay(true)} className='absolute bg-white cursor-pointer text-teal-500 p-2 rounded-full right-0 bottom-0 z-10 text-sm'><FaPencilAlt /></div>
+                        </div>
                         <h6 className='mt-2 px-2'>{user.name.toUpperCase()}</h6>
                     </div>
                     <div className="border"></div>
