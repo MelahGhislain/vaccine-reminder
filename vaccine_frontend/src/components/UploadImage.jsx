@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import axios from 'axios'
-import AppContext from '../../AppContext/AppContext'
-import  URLS from '../../constants'
+import  URLS from '../constants'
+import AppContext from '../AppContext/AppContext'
 
 const UploadImage = ({openOverlay, setOpenOverlay}) => {
     const [image, setImage] = useState({ preview: '', data: '' })

@@ -37,7 +37,7 @@ const Hero = () => {
                     whileInView={{opacity: [0,1], x:[300, 0]}}
                     transition={{duration: 0.5}}
                     className="w-full">
-                    <Link to="/login" className="w-full">
+                    <Link to="/admin" className="w-full">
                       <OutlineButton text="Practitional login" />
                     </Link>
                   </motion.span>

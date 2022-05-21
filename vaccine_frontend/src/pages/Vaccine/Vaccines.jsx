@@ -6,49 +6,49 @@ import Footer from '../../components/Footer'
 import VaccineList from './VaccineList'
 const vaccines = [
     {
-        name: "BCG",
+        abbrevation: "BCG",
         contact: "first contact",
         age: "At birth",
         route_of_admin: "Intrademal",
         preventable_diseases: ["Tuberculosis"]
     },
     {
-        name: "OPV 0",
+        abbrevation: "OPV 0",
         contact: "first contact",
         age: "At birth",
         route_of_admin: "Oral",
         preventable_diseases: ["Poliomyelitis"]
     },
     {
-        name: "DTP-HepB-Hib 1",
+        abbrevation: "DTP-HepB-Hib 1",
         contact: "second contact",
         age: "6 weeks",
         route_of_admin: "Intramoscular",
         preventable_diseases: ["Diphteria", "Tetanus", "Pertussis", "Infection due to Haemophilus Influnzae type b", "Hepatitis B Poliomyelitis"]
     },
     {
-        name: "OPV 1",
+        abbrevation: "OPV 1",
         contact: "second contact",
         age: "6 weeks",
         route_of_admin: "Oral",
         preventable_diseases: ["Poliomyelitis"]
     },
     {
-        name: "Pneumo 13-1 (PCV)",
+        abbrevation: "Pneumo 13-1 (PCV)",
         contact: "second contact",
         age: "6 weeks",
         route_of_admin: "Intramoscular",
         preventable_diseases: ["Pneumococcal infections"]
     },
     {
-        name: "ROTAL 1",
+        abbrevation: "ROTAL 1",
         contact: "second contact",
         age: "6 weeks",
         route_of_admin: "Oral",
         preventable_diseases: ["RotaVirus Diarrhoea"]
     },
     {
-        name: "DTP-HepB-Hib 2",
+        abbrevation: "DTP-HepB-Hib 2",
         contact: "third contact",
         age: "10 weeks",
         route_of_admin: "Intramoscular",
@@ -58,70 +58,70 @@ const vaccines = [
     // 3 contact
 
     {
-        name: "OPV 2",
+        abbrevation: "OPV 2",
         contact: "third contact",
         age: "10 weeks",
         route_of_admin: "Oral",
         preventable_diseases: ["Poliomyelitis"]
     },
     {
-        name: "Pneumo 13-2",
+        abbrevation: "Pneumo 13-2",
         contact: "third contact",
         age: "10 weeks",
         route_of_admin: "Intramoscular",
         preventable_diseases: ["Pneumococcal infections"]
     },
     {
-        name: "ROTAL 2",
+        abbrevation: "ROTAL 2",
         contact: "third contact",
         age: "10 weeks",
         route_of_admin: "Oral",
         preventable_diseases: ["RotaVirus Diarrhoea"]
     },
     {
-        name: "DTP-HepB-Hib 3",
+        abbrevation: "DTP-HepB-Hib 3",
         contact: "third contact",
         age: "10 weeks",
         route_of_admin: "Intramoscular",
         preventable_diseases: ["Diphteria", "Tetanus", "Pertussis", "Infection due to Haemophilus Influnzae type b", "Hepatitis B"]
     },
     {
-        name: "OPV 3",
+        abbrevation: "OPV 3",
         contact: "third contact",
         age: "10 weeks",
         route_of_admin: "Oral",
         preventable_diseases: ["Poliomyelitis"]
     },
     {
-        name: "IPV",
+        abbrevation: "IPV",
         contact: "third contact",
         age: "10 weeks",
         route_of_admin: "Intramoscular",
         preventable_diseases: []
     },
     {
-        name: "Pneumo 13-3",
+        abbrevation: "Pneumo 13-3",
         contact: "third contact",
         age: "10 weeks",
         route_of_admin: "Intramoscular",
         preventable_diseases: ["Pneumococcal infections"]
     },
     {
-        name: "Vit A",
+        abbrevation: "Vit A",
         contact: "third contact",
         age: "10 weeks",
         route_of_admin: "Oral",
         preventable_diseases: []
     },
     {
-        name: "MR",
+        abbrevation: "MR",
         contact: "third contact",
         age: "10 weeks",
         route_of_admin: "Subcutaneous",
         preventable_diseases: ["Measles", "Rubella"]
     },
     {
-        name: "YF",
+        abbrevation: "YF",
         contact: "third contact",
         age: "10 weeks",
         route_of_admin: "Subcutaneous",

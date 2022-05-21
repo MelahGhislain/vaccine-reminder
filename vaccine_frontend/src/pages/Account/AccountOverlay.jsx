@@ -6,7 +6,7 @@ import axios from 'axios'
 import  URLS from '../../constants'
 import AppContext from '../../AppContext/AppContext'
 import Profile from './Profile'
-import UploadImage from './UploadImage'
+import UploadImage from '../../components/UploadImage'
 
 const AccountOverlay = () => {
     const [children, setChildren] = useState([])

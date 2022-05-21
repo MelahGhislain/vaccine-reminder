@@ -13,6 +13,7 @@ import Vaccine from './pages/Vaccine/Vaccine';
 import Vaccines from './pages/Vaccine/Vaccines';
 import Account from './pages/Account/Account';
 import Policy from './pages/TermsAndPolicy/Policy';
+import Dashboard from './pages/Admin/Dashboard';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/vaccines" element={<Vaccines />} />
           <Route path="/account" element={<Account />} />
           <Route path="/policy" element={<Policy />} />
+          <Route path="/admin" element={<Dashboard />} />
         </Routes>
       </Router>
     </div>
