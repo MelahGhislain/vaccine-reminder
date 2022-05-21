@@ -44,8 +44,10 @@ const AccountOverlay = () => {
     }
 
     useEffect(()=>{
+        console.log("trying  to fetch")
         axios.get(`${URLS.BASE_URL}/child`, {headers:{Authorization: `Bearer ${user.token}`}}).then( res =>{
             const status = res.data.status
+            console.log("feched")
             if(status === "success"){
                 console.log(res.data.data)
                 setChildren(res.data.data)

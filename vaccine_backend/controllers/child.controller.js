@@ -34,7 +34,9 @@ module.exports.createChild = async(req, res, next)=>{
 module.exports.getChildren = async(req, res, next)=>{
     try{
         const parentId = req.user.id
+        
         const children = await Child.find({parent: parentId})
+       
         let childrenData = []
         for(i=0; i < children.length; i++){
             const child = children[i]
@@ -42,12 +44,15 @@ module.exports.getChildren = async(req, res, next)=>{
             const vaccineData = []
             for(j=0; j< child.vaccines.length; j++){
                 const vaccine = child.vaccines[j]
-                
+               
                 const doc = await Vaccine.findById(vaccine)
+                
                 vaccineData.push(doc._doc)
             }
+            
             childrenData.push({...child._doc, vaccines: [...vaccineData]})
         }
+        
         res.status(200).json({status: "success", data: childrenData})
     }catch(err){
         next({status: "failed", msg: "Could not get children", err})
