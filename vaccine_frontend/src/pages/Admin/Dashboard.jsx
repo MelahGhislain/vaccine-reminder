@@ -12,7 +12,7 @@ const Dashboard = () => {
     const [vaccines, setVaccines] = useState([])
     const [openVaccineDashboard, setOpenVaccineDashboard] = useState(true)
     const [openDrawer, setOpenDrawer] = useState(false)
-    const {user, setUser, stateChanged} = useContext(AppContext)
+    const {user, stateChanged} = useContext(AppContext)
     const [openOverlay, setOpenOverlay] = useState(false)
     const [createVaccine, setCreateVaccine] = useState(false)
 
