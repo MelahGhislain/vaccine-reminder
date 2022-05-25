@@ -11,9 +11,9 @@ const Hero = () => {
   return (
     <section className='h-[92%] relative mt-12'>
         <div className="h-full w-full">
-            <img src={images.stethoscope} alt="stethoscope" className='h-full w-full object-cover'/>
+            <img src={images.eleven} alt="stethoscope" className='h-full w-full object-cover'/>
         </div>
-        <div className='absolute bg-black/50 h-full w-full top-0 flex justify-center items-center'>
+        <div className='absolute bg-black/60 h-full w-full top-0 flex justify-center items-center'>
             <div className='md:w-[70%] lg:w-[50%] h-full flex justify-center items-start px-12 lg:px-20 flex-col text-white'>
                 <motion.h1
                   whileInView={{opacity: [0,1], y:[-300, 0]}}

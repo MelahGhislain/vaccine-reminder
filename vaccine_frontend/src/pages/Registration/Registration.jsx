@@ -18,7 +18,7 @@ const Registration = () => {
             <div className='h-[70vh] w-screen flex flex-col justify-start'>
                 <NavBar />
                 <CustomHero 
-                    image={images.stethoscope}
+                    image={images.three}
                     title="REGISTER YOUR CHILD "
                     subtitle="Fill in the form below to get riminded on the upcomming vaccination dates"
                 />

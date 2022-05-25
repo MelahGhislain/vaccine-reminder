@@ -11,7 +11,7 @@ const Vaccine = () => {
         <div className='h-[60vh] w-screen flex flex-col justify-start mb-12'>
             <NavBar />
             <CustomHero
-                image={images.syringe}
+                image={images.stethoscope}
                 title="VACCINES"
                 subtitle="Better Health, Better Care, Better Life"
             />

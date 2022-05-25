@@ -86,7 +86,7 @@ const Login = () => {
               </div>
           </div>
           <div className='flex-1 h-full w-full relative hidden md:flex'>
-              <img src={images.syringe } alt="doctor" className='w-full h-full object-cover rounded-tr-2xl rounded-br-2xl'/>
+              <img src={images.fifteen } alt="doctor" className='w-full h-full object-cover rounded-tr-2xl rounded-br-2xl'/>
               <div className='h-full w-full rounded-tr-2xl rounded-br-2xl absolute bg-black/30 top-0'></div>
           </div>
       </div>

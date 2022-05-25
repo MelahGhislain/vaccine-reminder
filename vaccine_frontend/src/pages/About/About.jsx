@@ -11,7 +11,7 @@ const About = () => {
         <div className='h-[70vh] w-screen flex flex-col justify-start mb-12'>
             <NavBar />
             <CustomHero 
-                image={images.syringe}
+                image={images.ten}
                 title="ABOUT US "
                 subtitle="Better Health, Better Care, Better Life"
             />

@@ -26,7 +26,7 @@ const HomeDescription = () => {
             <motion.article 
                 whileInView={{opacity:[0,1], x:[300, 0]}}
                 className='lg:flex-1 h-[18rem] lg:h-full w-full relative'>
-                <img src={images.nurse} alt="midwife" className='w-full h-full object-cover'/>
+                <img src={images.fourteen} alt="midwife" className='w-full h-full object-cover'/>
                 <div className="absolute top-0 bg-black/60 w-full h-full"></div>
             </motion.article>
         </div>
@@ -35,7 +35,7 @@ const HomeDescription = () => {
                 whileInView={{opacity:[0,1]}}
                 transition={{duration: 0.5, delay: 0.5}}
                 className='lg:flex-1 h-[18rem] lg:h-full w-full relative order-2 lg:order-1'>
-                <img src={images.nurse} alt="midwife" className='w-full h-full object-cover'/>
+                <img src={images.twelve} alt="midwife" className='w-full h-full object-cover'/>
                 <div className="absolute top-0 bg-black/60 w-full h-full"></div>
             </motion.article>
             <motion.article 
